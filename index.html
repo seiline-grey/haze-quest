@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haze:Coin Квест</title>
+    <style>
+        body {
+            background: #1a1a2e;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(0,0,0,0.7);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        .choice-btn {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .choice-btn:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>🎮 Haze:Coin - Тестовая версия</h1>
+        <p>Поздравляю! Ты успешно создал свою первую страницу на GitHub Pages!</p>
+        <p>Это начало твоего квеста. Скоро здесь появятся:</p>
+        <ul style="text-align: left; display: inline-block;">
+            <li>Картинки и анимации</li>
+            <li>Система ключевых слов</li>
+            <li>Сохранение прогресса</li>
+            <li>Многопользовательская игра</li>
+        </ul>
+        
+        <div id="game-text" style="margin: 30px 0; font-size: 18px;">
+            <p>Ты стоишь перед старым особняком. Ветер шепчет странные слова...</p>
+        </div>
+        
+        <div id="choices">
+            <button class="choice-btn" onclick="makeChoice(1)">🔍 Обыскать вход</button>
+            <button class="choice-btn" onclick="makeChoice(2)">🚪 Постучать в дверь</button>
+            <button class="choice-btn" onclick="makeChoice(3)">⏳ Ждать второго игрока</button>
+        </div>
+        
+        <div id="result" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        function makeChoice(choice) {
+            const results = [
+                "Нашёл странную монету!",
+                "Дверь медленно открывается...",
+                "Ты решаешь подождать соигрока"
+            ];
+            document.getElementById('result').innerHTML = 
+                `<p style="color: #ffc107;">🎯 Результат: ${results[choice-1]}</p>`;
+        }
+    </script>
+    
+    <footer style="margin-top: 40px; color: #888;">
+        <p>Ссылка на этот проект: <span id="project-url"></span></p>
+        <script>
+            document.getElementById('project-url').innerHTML = 
+                window.location.hostname + '/' + window.location.pathname.split('/')[1];
+        </script>
+    </footer>
+</body>
+</html>
