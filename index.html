@@ -69,17 +69,16 @@
         }
         
         .scene-image {
-            flex: 1;
-            min-width: 300px;
-            background: #000;
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            font-size: 18px;
-        }
+    flex: 1;
+    min-width: 300px;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    background-image: url('images/background/autor.png');
+    background-size: cover;
+    background-position: center;
+}
         
         .scene-text {
             flex: 2;
@@ -386,6 +385,11 @@
             
             // Выполняем дополнительные действия
             if (scene.onShow) scene.onShow();
+
+            // Обновляем картинку
+            if (scene.background) {
+                document.getElementById('scene-image').style.backgroundImage = `url('${scene.background}')`;
+            }
             
             // Обновляем статистику
             updateStats();
